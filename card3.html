@@ -1,4 +1,50 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Matt's Grammar Dad Jokes - Card 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 20px;
+        }
+        .flashcard {
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            width: 400px;
+            height: 400px;
+            margin: 15px auto;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .flashcard-front, .flashcard-back {
+            display: none;
+        }
+        .flashcard-front.active, .flashcard-back.active {
+            display: block;
+        }
+        .flashcard-front {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 28px;
+        }
+        .flashcard-back .joke-setup {
+            font-size: 24px;
             color: #2c3e50;
             margin-bottom: 10px;
         }
