@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Matt's Grammar Dad Jokes - Card 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 20px;
+        }
+        .flashcard {
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            width: 400px;
+            height: 400px;
+            margin: 15px auto;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .flashcard-front, .flashcard-back {
+            display: none;
+        }
+        .flashcard-front.active, .flashcard-back.active {
+            display: block;
+        }
+        .flashcard-front {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 28px;
+        }
+        .flashcard-back .punchline {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .flashcard-back .grammar-lesson {
+            font-size: 14px;
+            color: #34495e;
+        }
+        .grammar-noun { color: blue; }
+        .grammar-verb { color: red; }
+        .grammar-adjective { color: green; }
+        .grammar-adverb { color: orange; }
+        .grammar-article { color: purple; }
+        .grammar-preposition { color: brown; }
+        .grammar-conjunction { color: pink; }
+        .grammar-pronoun { color: yellow; }
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .nav-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 10px;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        .nav-icon.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body onload="speakOnLoad()">
+    <h1>Teacher Matt's Grammar Dad Jokes</h1>
+    <div class="flashcard" onclick="toggleCard(this)">
+        <div class="flashcard-front active">
+            Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?
+        </div>
+        <div class="flashcard-back">
+            <div class="punchline">Because <span class="grammar-pronoun">he</span> was <span class="grammar-adjective">outstanding</span> <span class="grammar-preposition">in</span> <span class="grammar-pronoun">his</span> field!</div>
+            <div class="grammar-lesson"><strong>Grammar Lesson:</strong> "<span class="grammar-noun">scarecrow</span>" is a <span class="grammar-noun">noun</span> and <span class="grammar-noun">subject</span>, with "<span class="grammar-article">the</span>" as an <span class="grammar-article">article</span>. "<span class="grammar-verb">become</span>" is a <span class="grammar-verb">verb</span>. The punchline uses "<span class="grammar-pronoun">he</span>" and "<span class="grammar-pronoun">his</span>" as <span class="grammar-pronoun">pronouns</span>, "<span class="grammar-adjective">outstanding</span>" as an <span class="grammar-adjective">adjective</span>, and "<span class="grammar-preposition">in</span>" as a <span class="grammar-preposition">preposition</span>.</div>
+        </div>
+    </div>
+    <div class="navigation">
+        <img src="https://cdn-icons-png.flaticon.com/512/222/222250.png" alt="Previous" class="nav-icon disabled" style="transform: scaleX(-1)">
+        <a href="card2.html"><img src="https://cdn-icons-png.flaticon.com/512/222/222250.png" alt="Next" class="nav-icon"></a>
+    </div>
+
+    <script>
+        function speakOnLoad() {
+            const front = document.querySelector('.flashcard-front');
+            const utterance = new SpeechSynthesisUtterance();
+            utterance.lang = 'en-US';
+            utterance.text = front.textContent.replace(/<[^>]+>/g, '');
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function toggleCard(card) {
+            const front = card.querySelector('.flashcard-front');
+            const back = card.querySelector('.flashcard-back');
+            const punchline = card.querySelector('.punchline');
+            
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+            
+            // Toggle visibility
+            front.classList.toggle('active');
+            back.classList.toggle('active');
+            
+            // Speak the punchline if back is active
+            if (back.classList.contains('active')) {
+                const utterance = new SpeechSynthesisUtterance();
+                utterance.lang = 'en-US';
+                utterance.text = punchline.textContent.replace(/<[^>]+>/g, '');
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+</html>
