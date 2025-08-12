@@ -118,9 +118,7 @@
             "Early men hunted mammoths armed with spears." (What's wrong here?)
         </div>
         <div class="flashcard-back">
-            It implies <span class="grammar-noun">mammoths</span> had spears! Better: "<span class="grammar-modifier">Armed with spears</span>, <span class="grammar-noun">early men</span> hunted mamm
-
-oths."<br>
+            It implies <span class="grammar-noun">mammoths</span> had spears! Better: "<span class="grammar-modifier">Armed with spears</span>, <span class="grammar-noun">early men</span> hunted <span class="grammar-noun">mammoths</span>."<br>
             <strong>Grammar Lesson:</strong> This avoids a dangling <span class="grammar-punctuation">modifier</span> (the phrase "<span class="grammar-modifier">armed with spears</span>" should describe the <span class="grammar-noun">subject</span> "<span class="grammar-noun">men</span>," not "<span class="grammar-noun">mammoths</span>"). Reorder for clarity in what they <span class="grammar-verb">hunted</span>.
         </div>
     </div>
@@ -129,4 +127,36 @@ oths."<br>
             When I was a kid, my teacher said, "Name two pronouns."
         </div>
         <div class="flashcard-back">
-            I said, "<span class="grammar-noun">Who [
+            I said, "<span class="grammar-noun">Who</span>, <span class="grammar-noun">me</span>?"<br>
+            <strong>Grammar Lesson:</strong> <span class="grammar-noun">Pronouns</span> like "<span class="grammar-noun">who</span>" (subject) and "<span class="grammar-noun">me</span>" (object) replace <span class="grammar-noun">nouns</span>. The joke uses them naturally in response.
+        </div>
+    </div>
+    <div class="flashcard" onclick="toggleCard(this)">
+        <div class="flashcard-front active">
+            Knock knock. Who’s there? To. To who?
+        </div>
+        <div class="flashcard-back">
+            No, it's "to <span class="grammar-noun">whom</span>!"<br>
+            <strong>Grammar Lesson:</strong> Use "<span class="grammar-noun">who</span>" as a <span class="grammar-noun">subject pronoun</span> (who <span class="grammar-verb">does</span> something) and "<span class="grammar-noun">whom</span>" as an <span class="grammar-noun">object pronoun</span> (to whom something <span class="grammar-verb">happens</span>). Test by swapping with "he/him."
+        </div>
+    </div>
+    <div class="flashcard" onclick="toggleCard(this)">
+        <div class="flashcard-front active">
+            The bar was walked into by the passive voice.
+        </div>
+        <div class="flashcard-back">
+            (Contrast with active: "<span class="grammar-noun">The passive voice</span> <span class="grammar-verb">walked</span> into a bar.") Ouch—it's awkward!<br>
+            <strong>Grammar Lesson:</strong> Passive voice has the <span class="grammar-noun">subject</span> "<span class="grammar-noun">bar</span>" receiving the <span class="grammar-verb">action</span> ("<span class="grammar-verb">was walked into</span>"), making writing less direct. Prefer active for energy: "<span class="grammar-noun">Subject</span> <span class="grammar-verb">does</span> action."
+        </div>
+    </div>
+
+    <script>
+        function toggleCard(card) {
+            const front = card.querySelector('.flashcard-front');
+            const back = card.querySelector('.flashcard-back');
+            front.classList.toggle('active');
+            back.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
