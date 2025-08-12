@@ -44,7 +44,7 @@
             font-size: 28px;
         }
         .flashcard-back .joke-setup {
-            font-size: 24px;
+            font-size: 18px;
             color: #2c3e50;
             margin-bottom: 10px;
         }
@@ -56,15 +56,22 @@
         .flashcard-back .grammar-lesson {
             font-size: 14px;
             color: #34495e;
+            margin-bottom: 10px;
         }
-        .grammar-noun { color: blue; }
-        .grammar-verb { color: red; }
-        .grammar-adjective { color: green; }
-        .grammar-adverb { color: orange; }
-        .grammar-article { color: purple; }
-        .grammar-preposition { color: brown; }
-        .grammar-conjunction { color: pink; }
-        .grammar-pronoun { color: yellow; }
+        .flashcard-back .grammar-key {
+            font-size: 14px;
+            color: #7f8c8d;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+        .grammar-noun { color: #00008B; font-weight: bold; } /* Dark Blue */
+        .grammar-verb { color: #FF0000; font-weight: bold; } /* Red */
+        .grammar-adjective { color: #006400; } /* Dark Green */
+        .grammar-adverb { color: #FF7F50; } /* Coral */
+        .grammar-article { color: #FFD700; } /* Gold */
+        .grammar-preposition { color: #90EE90; } /* Light Green */
+        .grammar-conjunction { color: #4A4A4A; } /* Dark Gray */
+        .grammar-pronoun { color: #4682B4; } /* Steel Blue */
         .navigation {
             text-align: center;
             margin-top: 20px;
@@ -86,12 +93,24 @@
     <h1>Teacher Matt's Grammar Dad Jokes</h1>
     <div class="flashcard" onclick="toggleCard(this)">
         <div class="flashcard-front active">
-            Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?
+            "Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?"
         </div>
         <div class="flashcard-back">
-            <div class="joke-setup">Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?</div>
-            <div class="punchline">Because <span class="grammar-pronoun">he</span> was <span class="grammar-adjective">outstanding</span> <span class="grammar-preposition">in</span> <span class="grammar-pronoun">his</span> field!</div>
-            <div class="grammar-lesson"><strong>Grammar Lesson:</strong> "<span class="grammar-noun">scarecrow</span>" is a <span class="grammar-noun">noun</span> and <span class="grammar-noun">subject</span>, with "<span class="grammar-article">the</span>" as an <span class="grammar-article">article</span>. "<span class="grammar-verb">become</span>" is a <span class="grammar-verb">verb</span>. The punchline uses "<span class="grammar-pronoun">he</span>" and "<span class="grammar-pronoun">his</span>" as <span class="grammar-pronoun">pronouns</span>, "<span class="grammar-adjective">outstanding</span>" as an <span class="grammar-adjective">adjective</span>, and "<span class="grammar-preposition">in</span>" as a <span class="grammar-preposition">preposition</span>.</div>
+            <div class="joke-setup">"Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?"</div>
+            <div class="punchline">"Because <span class="grammar-pronoun">he</span> was <span class="grammar-adjective">outstanding</span> <span class="grammar-preposition">in</span> <span class="grammar-pronoun">his</span> <span class="grammar-noun">field</span>!"</div>
+            <hr>
+            <div class="grammar-lesson">
+                <strong>Grammar Lesson:</strong><br>
+                - "<span class="grammar-article">the</span>" and "<span class="grammar-article">a</span>" are <span class="grammar-article">articles</span>, words that introduce <span class="grammar-noun">nouns</span>.<br>
+                - "<span class="grammar-noun">scarecrow</span>" and "<span class="grammar-noun">field</span>" are <span class="grammar-noun">nouns</span>, a person, place, or thing, acting as the <span class="grammar-noun">subject</span> or object.<br>
+                - "<span class="grammar-verb">become</span>" is a <span class="grammar-verb">verb</span>, expressing an action or state.<br>
+                - "<span class="grammar-pronoun">he</span>" and "<span class="grammar-pronoun">his</span>" are <span class="grammar-pronoun">pronouns</span>, replacing <span class="grammar-noun">nouns</span>.<br>
+                - "<span class="grammar-adjective">outstanding</span>" is an <span class="grammar-adjective">adjective</span>, describing the <span class="grammar-noun">noun</span> "scarecrow".<br>
+                - "<span class="grammar-preposition">in</span>" is a <span class="grammar-preposition">preposition</span>, showing a relationship between <span class="grammar-noun">nouns</span>.
+            </div>
+            <div class="grammar-key">
+                <strong>Grammar Key:</strong> <span class="grammar-noun">Nouns</span>, <span class="grammar-verb">Verbs</span>, <span class="grammar-adjective">Adjectives</span>, <span class="grammar-adverb">Adverbs</span>, <span class="grammar-article">Articles</span>, <span class="grammar-preposition">Prepositions</span>, <span class="grammar-conjunction">Conjunctions</span>, <span class="grammar-pronoun">Pronouns</span>
+            </div>
         </div>
     </div>
     <div class="navigation">
