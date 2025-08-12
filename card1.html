@@ -15,7 +15,7 @@
         h1 {
             text-align: center;
             color: #333;
-            font-size: 20px;
+            font-size: 10px; /* Reduced by 50% from 20px */
             font-family: "Comic Sans MS", Arial, sans-serif; /* Fun font */
         }
         .flashcard {
@@ -23,9 +23,9 @@
             border: 2px solid #ccc;
             border-radius: 12px;
             width: 300px;
-            height: 300px;
+            height: 360px;
             margin: 15px auto;
-            padding: 15px;
+            padding: 10px; /* Reduced from 15px to free up space */
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             cursor: pointer;
             text-align: center;
@@ -43,29 +43,31 @@
         .flashcard-front {
             font-weight: bold;
             color: #2c3e50;
-            font-size: 16px; /* Reduced from 20px */
+            font-size: 14px; /* Reduced from 16px to fit */
+            max-height: 80px; /* Limit to prevent overflow */
+            overflow: hidden;
         }
         .flashcard-back .joke-setup {
-            font-size: 12px; /* Reduced from 14px */
+            font-size: 12px; /* Unchanged */
             color: #2c3e50;
             margin-bottom: 5px;
+            max-height: 80px; /* New limit to fit */
             overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            word-wrap: break-word; /* Allow wrapping instead of nowrap */
         }
         .flashcard-back .punchline {
-            font-size: 16px; /* Reduced from 20px */
+            font-size: 14px; /* Reduced from 16px to fit */
             font-weight: bold;
             margin-bottom: 10px;
+            max-height: 60px; /* New limit to fit */
             overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            word-wrap: break-word; /* Allow wrapping */
         }
         .flashcard-back .grammar-lesson {
-            font-size: 10px; /* Reduced from 12px */
+            font-size: 10px; /* Unchanged */
             color: #34495e;
             margin-bottom: 5px;
-            max-height: 100px; /* Allow more space with scroll */
+            max-height: 150px; /* Unchanged */
             overflow-y: auto;
         }
         .flashcard-back .grammar-key {
@@ -80,7 +82,7 @@
         .grammar-conjunction { color: #4A4A4A; }
         .grammar-pronoun { color: #4682B4; }
         .grammar-key {
-            font-size: 10px; /* Reduced from 12px */
+            font-size: 10px; /* Unchanged */
             color: #7f8c8d;
             text-align: center;
             margin: 10px auto;
@@ -106,13 +108,13 @@
         @media (max-width: 320px) {
             .flashcard {
                 width: 280px;
-                height: 280px;
+                height: 336px; /* 20% increase from 280px */
                 padding: 10px;
             }
-            .flashcard-front { font-size: 14px; }
-            .flashcard-back .joke-setup { font-size: 10px; }
-            .flashcard-back .punchline { font-size: 14px; }
-            .flashcard-back .grammar-lesson { font-size: 8px; max-height: 90px; }
+            .flashcard-front { font-size: 12px; max-height: 70px; }
+            .flashcard-back .joke-setup { font-size: 10px; max-height: 70px; }
+            .flashcard-back .punchline { font-size: 12px; max-height: 50px; }
+            .flashcard-back .grammar-lesson { font-size: 8px; max-height: 140px; }
             .grammar-key { font-size: 8px; width: 280px; }
             .nav-icon { width: 28px; height: 28px; }
         }
@@ -185,17 +187,16 @@
             while (totalHeight > availableHeight && fontSize > 8) { // Minimum font size of 8px
                 fontSize -= 1;
                 back.style.fontSize = `${fontSize}px`;
+                back.querySelector('.joke-setup').style.fontSize = `${fontSize * 0.75}px`;
+                back.querySelector('.punchline').style.fontSize = `${fontSize}px`;
+                back.querySelector('.grammar-lesson').style.fontSize = `${fontSize * 0.625}px`;
                 totalHeight = back.scrollHeight;
-                back.querySelector('.joke-setup').style.fontSize = `${fontSize * 0.75}px`; // Scale setup
-                back.querySelector('.punchline').style.fontSize = `${fontSize}px`; // Keep punchline bold
-                back.querySelector('.grammar-lesson').style.fontSize = `${fontSize * 0.625}px`; // Scale lesson
             }
         }
 
         // Run on load and after toggle
         window.addEventListener('load', adjustFontSize);
         document.querySelector('.flashcard').addEventListener('click', adjustFontSize);
-        document.querySelector('.flashcard').addEventListener('touchstart', adjustFontSize);
     </script>
 </body>
 </html>
