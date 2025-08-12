@@ -43,6 +43,11 @@
             color: #2c3e50;
             font-size: 28px;
         }
+        .flashcard-back .joke-setup {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
         .flashcard-back .punchline {
             font-size: 28px;
             font-weight: bold;
@@ -84,6 +89,7 @@
             Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?
         </div>
         <div class="flashcard-back">
+            <div class="joke-setup">Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?</div>
             <div class="punchline">Because <span class="grammar-pronoun">he</span> was <span class="grammar-adjective">outstanding</span> <span class="grammar-preposition">in</span> <span class="grammar-pronoun">his</span> field!</div>
             <div class="grammar-lesson"><strong>Grammar Lesson:</strong> "<span class="grammar-noun">scarecrow</span>" is a <span class="grammar-noun">noun</span> and <span class="grammar-noun">subject</span>, with "<span class="grammar-article">the</span>" as an <span class="grammar-article">article</span>. "<span class="grammar-verb">become</span>" is a <span class="grammar-verb">verb</span>. The punchline uses "<span class="grammar-pronoun">he</span>" and "<span class="grammar-pronoun">his</span>" as <span class="grammar-pronoun">pronouns</span>, "<span class="grammar-adjective">outstanding</span>" as an <span class="grammar-adjective">adjective</span>, and "<span class="grammar-preposition">in</span>" as a <span class="grammar-preposition">preposition</span>.</div>
         </div>
@@ -107,14 +113,10 @@
             const back = card.querySelector('.flashcard-back');
             const punchline = card.querySelector('.punchline');
             
-            // Cancel any ongoing speech
             window.speechSynthesis.cancel();
-            
-            // Toggle visibility
             front.classList.toggle('active');
             back.classList.toggle('active');
             
-            // Speak the punchline if back is active
             if (back.classList.contains('active')) {
                 const utterance = new SpeechSynthesisUtterance();
                 utterance.lang = 'en-US';
