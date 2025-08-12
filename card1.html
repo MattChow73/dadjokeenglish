@@ -2,35 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Teacher Matt's Grammar Dad Jokes - Card 1</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         h1 {
             text-align: center;
             color: #333;
-            font-size: 20px;
+            font-size: 4vw;
+            margin-bottom: 2vh;
         }
         .flashcard {
             background: white;
             border: 2px solid #ccc;
             border-radius: 12px;
-            width: 400px;
-            height: 400px;
-            margin: 15px auto;
-            padding: 30px;
+            min-width: 90vw;
+            min-height: 90vh;
+            max-width: 100%;
+            padding: 3vh;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             cursor: pointer;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            flex: 1;
         }
         .flashcard-front, .flashcard-back {
             display: none;
@@ -41,45 +46,45 @@
         .flashcard-front {
             font-weight: bold;
             color: #2c3e50;
-            font-size: 28px;
+            font-size: 3.5vw;
         }
         .flashcard-back .joke-setup {
-            font-size: 18px;
+            font-size: 2.5vw;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 1vh;
         }
         .flashcard-back .punchline {
-            font-size: 28px;
+            font-size: 3.5vw;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 2vh;
         }
         .flashcard-back .grammar-lesson {
-            font-size: 14px;
+            font-size: 1.5vw;
             color: #34495e;
-            margin-bottom: 10px;
+            margin-bottom: 1vh;
         }
         .flashcard-back .grammar-key {
-            font-size: 14px;
+            font-size: 1.5vw;
             color: #7f8c8d;
             border-top: 1px solid #ccc;
-            padding-top: 10px;
+            padding-top: 1vh;
         }
-        .grammar-noun { color: #00008B; font-weight: bold; } /* Dark Blue */
-        .grammar-verb { color: #FF0000; font-weight: bold; } /* Red */
-        .grammar-adjective { color: #006400; } /* Dark Green */
-        .grammar-adverb { color: #FF7F50; } /* Coral */
-        .grammar-article { color: #FFD700; } /* Gold */
-        .grammar-preposition { color: #90EE90; } /* Light Green */
-        .grammar-conjunction { color: #4A4A4A; } /* Dark Gray */
-        .grammar-pronoun { color: #4682B4; } /* Steel Blue */
+        .grammar-noun { color: #00008B; font-weight: bold; }
+        .grammar-verb { color: #FF0000; font-weight: bold; }
+        .grammar-adjective { color: #006400; }
+        .grammar-adverb { color: #FF7F50; }
+        .grammar-article { color: #FFD700; }
+        .grammar-preposition { color: #90EE90; }
+        .grammar-conjunction { color: #4A4A4A; }
+        .grammar-pronoun { color: #4682B4; }
         .navigation {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 2vh;
         }
         .nav-icon {
-            width: 32px;
-            height: 32px;
-            margin: 0 10px;
+            width: 6vw;
+            height: 6vw;
+            margin: 0 2vw;
             cursor: pointer;
             vertical-align: middle;
         }
@@ -87,11 +92,25 @@
             opacity: 0.5;
             cursor: not-allowed;
         }
+        @media (max-width: 320px) {
+            .flashcard {
+                min-width: 95vw;
+                min-height: 95vh;
+                padding: 2vh;
+            }
+            h1 { font-size: 5vw; }
+            .flashcard-front { font-size: 4vw; }
+            .flashcard-back .joke-setup { font-size: 3vw; }
+            .flashcard-back .punchline { font-size: 4vw; }
+            .flashcard-back .grammar-lesson { font-size: 2vw; }
+            .flashcard-back .grammar-key { font-size: 2vw; }
+            .nav-icon { width: 8vw; height: 8vw; }
+        }
     </style>
 </head>
 <body onload="speakOnLoad()">
     <h1>Teacher Matt's Grammar Dad Jokes</h1>
-    <div class="flashcard" onclick="toggleCard(this)">
+    <div class="flashcard" onclick="toggleCard(this)" ontouchstart="toggleCard(this)">
         <div class="flashcard-front active">
             "Why did <span class="grammar-article">the</span> <span class="grammar-noun">scarecrow</span> <span class="grammar-verb">become</span> <span class="grammar-article">a</span> motivational speaker?"
         </div>
@@ -101,6 +120,7 @@
             <hr>
             <div class="grammar-lesson">
                 <strong>Grammar Lesson:</strong><br>
+                <strong>Joke Explanation:</strong> This joke is a pun. "Outstanding in his field" means the scarecrow is excellent (outstanding), but it also plays on the literal idea of being physically in a field, where scarecrows are typically placed.<br>
                 - "<span class="grammar-article">the</span>" and "<span class="grammar-article">a</span>" are <span class="grammar-article">articles</span>, words that introduce <span class="grammar-noun">nouns</span>.<br>
                 - "<span class="grammar-noun">scarecrow</span>" and "<span class="grammar-noun">field</span>" are <span class="grammar-noun">nouns</span>, a person, place, or thing, acting as the <span class="grammar-noun">subject</span> or object.<br>
                 - "<span class="grammar-verb">become</span>" is a <span class="grammar-verb">verb</span>, expressing an action or state.<br>
@@ -123,6 +143,8 @@
             const front = document.querySelector('.flashcard-front');
             const utterance = new SpeechSynthesisUtterance();
             utterance.lang = 'en-US';
+            utterance.pitch = 1.5; // Higher pitch for a happier tone
+            utterance.rate = 1.2;  // Faster rate for a lively feel
             utterance.text = front.textContent.replace(/<[^>]+>/g, '');
             window.speechSynthesis.speak(utterance);
         }
@@ -137,10 +159,14 @@
             back.classList.toggle('active');
             
             if (back.classList.contains('active')) {
-                const utterance = new SpeechSynthesisUtterance();
-                utterance.lang = 'en-US';
-                utterance.text = punchline.textContent.replace(/<[^>]+>/g, '');
-                window.speechSynthesis.speak(utterance);
+                setTimeout(() => {
+                    const utterance = new SpeechSynthesisUtterance();
+                    utterance.lang = 'en-US';
+                    utterance.pitch = 1.5; // Higher pitch for a happier tone
+                    utterance.rate = 1.2;  // Faster rate for a lively feel
+                    utterance.text = punchline.textContent.replace(/<[^>]+>/g, '');
+                    window.speechSynthesis.speak(utterance);
+                }, 100); // Delay to ensure DOM is ready
             }
         }
     </script>
